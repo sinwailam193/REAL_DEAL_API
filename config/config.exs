@@ -8,23 +8,23 @@
 import Config
 
 config :real_deal_api,
-  ecto_repos: [RealDealApi.Repo],
-  generators: [binary_id: true]
+    ecto_repos: [RealDealApi.Repo],
+    generators: [binary_id: true]
 
 # Configures the endpoint
 config :real_deal_api, RealDealApiWeb.Endpoint,
-  url: [host: "localhost"],
-  render_errors: [
-    formats: [json: RealDealApiWeb.ErrorJSON],
-    layout: false
-  ],
-  pubsub_server: RealDealApi.PubSub,
-  live_view: [signing_salt: "3r8QKezT"]
+    url: [host: "localhost"],
+    render_errors: [
+      formats: [json: RealDealApiWeb.ErrorJSON],
+      layout: false
+    ],
+    pubsub_server: RealDealApi.PubSub,
+    live_view: [signing_salt: "3r8QKezT"]
 
 # Configures Elixir's Logger
 config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
+	format: "$time $metadata[$level] $message\n",
+	metadata: [:request_id]
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason

@@ -2,13 +2,15 @@ import Config
 
 # Configure your database
 config :real_deal_api, RealDealApi.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "real_deal_api_dev",
+  username: System.get_env("DATABASE_USER"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  hostname: System.get_env("DATABASE_HOST"),
+  database: System.get_env("DATABASE_DB"),
+  maintenance_database: System.get_env("DATABASE_DB"),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  pool_size: 2,
+  ssl: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
